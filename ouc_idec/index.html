@@ -1,0 +1,200 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ouc_iDEC</title>
+  <style>
+    /* 基础样式 */
+    * {margin: 0; padding: 0; box-sizing: border-box;}
+    body, html {height: 100%; font-family: Arial, sans-serif; scroll-behavior: smooth;}
+    
+    /* 导航栏 */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: #002b36;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 40px;
+      height: 80px;
+      z-index: 1000;
+    }
+    nav .logo {font-size: 20px; font-weight: bold;}
+    nav ul {list-style: none; display: flex;}
+    nav ul li {position: relative; margin-left: 20px; cursor: pointer;}
+    nav ul li a {
+      color: white; text-decoration: none;
+      padding: 25px 15px; display: block; font-size: 20px;
+    }
+    nav ul li:hover ul {display: block;}
+    nav ul ul {
+      display: none; position: absolute; top: 50px; left: 0;
+      background: #073642; padding: 0; min-width: 150px;
+    }
+    nav ul ul li {margin: 0;}
+    nav ul ul li a {padding: 10px 15px; font-size: 18px;}
+    nav ul ul li a:hover {background: #586e75;}
+
+    /* 页面全屏部分 */
+    section {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+      scroll-snap-align: start;
+      flex-direction: column;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    h1 {font-size: 42px; margin-bottom: 20px;}
+    p {font-size: 22px; line-height: 1.6; max-width: 900px;}
+
+    /* 页面背景 */
+    .page1 {background: #fdf6e3;}
+    .page2 {background: #eee8d5;}
+    .page3 {background: #93a1a1; color: white;}
+    .page4 {background: #657b83; color: white;}
+    .page5 {background: #073642; color: white;}
+
+    /* 滚动容器 */
+    main {
+      height: 100vh;
+      overflow-y: scroll;
+      scroll-snap-type: y mandatory;
+    }
+
+    /* 右侧进度条 */
+    #progressBar {
+      position: fixed;
+      right: 10px;
+      top: 0;
+      width: 5px;
+      height: 100%;
+      background: rgba(255,255,255,0.2);
+    }
+    #progress {
+      width: 100%;
+      background: #268bd2;
+      height: 0;
+    }
+  </style>
+</head>
+<body>
+  <!-- 顶部导航栏 -->
+  <nav>
+    <div class="logo">LOGO</div>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li>
+        <a href="#">Team ▾</a>
+        <ul>
+          <li><a href="members.html">Members</a></li>
+          <li><a href="attribution.html">Attribution</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">Project ▾</a>
+        <ul>
+          <li><a href="background.html">Background</a></li>
+          <li><a href="design.html">Design</a></li>
+          <li><a href="result.html">Result</a></li>
+          <li><a href="discussion.html">Discussion</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">Documentation ▾</a>
+        <ul>
+          <li><a href="notebook.html">Notebook</a></li>
+          <li><a href="protocal.html">Protocol</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- 滚动页面 -->
+  <main>
+    <section class="page1">
+      <h1>Welcome to our enzyme engineering revolution!</h1>
+      <p>We've made <b>alginate lyase smarter</b> to produce more high-value tetrasaccharides</p>
+      <p><i>介绍我们的项目......</i></p>
+    </section>
+
+    <section class="page2">
+      <h1>Project Background & Significance</h1>
+      <p>Alginate oligosaccharides (DP2-4) are like <b>‘golden molecules’ from the sea</b>, with bioactivities including antioxidant, anti-inflammatory, and antitumor effects</p>
+      <p>But traditional methods produce only limited amounts of tetrasaccharides...</p>
+      <p>（现有的内容是随便弄的）</p>
+    </section>
+
+    <section class="page3">
+      <h1>Innovative Methodology</h1>
+      <p>We adopted a dual-engine strategy combining:</p>
+      <p>🔹 Structure-guided site-directed mutagenesis<br>
+         🔹 Machine Learning optimal combination prediction<br>
+         🔹 Experimental validation closed-loop optimization</p>
+    </section>
+
+    <section class="page4">
+      <h1>Key Achievements</h1>
+      <p>✅ Single mutant <b>R159N</b>: Tetrasaccharide content increased to 46.2%<br>
+         ✅ Double mutant <b>R159A_K172E</b>: Predicted yield 34.91%<br>
+         ✅ Machine learning models accurately predicted mutation effects</p>
+    </section>
+
+    <section class="page5">
+      <h1>Application Prospects</h1>
+      <p>High-purity tetrasaccharide production for pharmaceuticals<br>
+         Functional food additives<br>
+         Methodological reference for other enzyme engineering projects</p>
+    </section>
+  </main>
+
+  <!-- 右侧滚动条 -->
+  <div id="progressBar">
+    <div id="progress"></div>
+  </div>
+
+  <script>
+    const main = document.querySelector("main");
+    const progress = document.getElementById("progress");
+    const sections = document.querySelectorAll("section");
+
+    // 页面滚动进度条
+    main.addEventListener("scroll", () => {
+      let scrollTop = main.scrollTop;
+      let scrollHeight = main.scrollHeight - main.clientHeight;
+      let progressHeight = (scrollTop / scrollHeight) * 100;
+      progress.style.height = progressHeight + "%";
+
+      // 检查当前section是否进入可视区
+      sections.forEach(sec => {
+        let rect = sec.getBoundingClientRect();
+        if (rect.top < window.innerHeight * 0.7 && rect.bottom > 100) {
+          sec.classList.add("visible");
+        }
+      });
+    });
+
+    // 页面加载时先检查一次
+    window.onload = () => {
+      sections.forEach(sec => {
+        let rect = sec.getBoundingClientRect();
+        if (rect.top < window.innerHeight * 0.7 && rect.bottom > 100) {
+          sec.classList.add("visible");
+        }
+      });
+    };
+  </script>
+</body>
+</html>
