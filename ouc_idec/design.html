@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Design - Alginate Lyase Engineering</title>
+  <style>
+    /* 基础样式 */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body, html {
+      font-family: Arial, sans-serif;
+      scroll-behavior: smooth;
+      background: #fdf6e3;
+      color: #333;
+      line-height: 1.8;
+    }
+
+    /* 顶部导航栏 */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: #002b36;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 40px;
+      height: 80px;
+      z-index: 1000;
+    }
+    nav .logo {
+      font-size: 20px;
+      font-weight: bold;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+    }
+    nav ul li {
+      position: relative;
+      margin-left: 20px;
+      cursor: pointer;
+    }
+    nav ul li a {
+      color: rgb(255, 255, 255);
+      text-decoration: none;
+      padding: 25px 15px;
+      display: block;
+      font-size: 20px;
+    }
+    nav ul li:hover ul {
+      display: block;
+    }
+    nav ul ul {
+      display: none;
+      position: absolute;
+      top: 50px;
+      left: 0;
+      background: #073642;
+      padding: 0;
+      min-width: 150px;
+    }
+    nav ul ul li {
+      margin: 0;
+    }
+    nav ul ul li a {
+      padding: 10px 15px;
+      font-size: 18px;
+    }
+    nav ul ul li a:hover {
+      background: #586e75;
+    }
+
+    /* 横向进度条 */
+    #horizontalProgressBar {
+      position: fixed;
+      top: 80px;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: rgba(0, 43, 54, 0.1);
+      z-index: 999;
+    }
+    #horizontalProgress {
+      height: 100%;
+      background: #268bd2;
+      width: 0%;
+      transition: width 0.1s ease-out;
+    }
+
+    /* 主内容区 */
+    .content {
+      margin-top: 100px;
+      max-width: 85%;
+      margin-left: auto;
+      margin-right: 220px;
+      padding: 40px;
+      background: #fdf6e3;
+    }
+
+    .page-title {
+      font-size: 36px;
+      font-weight: bold;
+      color: #002b36;
+      margin-bottom: 30px;
+      border-bottom: 3px solid #268bd2;
+      padding-bottom: 10px;
+    }
+
+    .section {
+      margin-bottom: 80px;
+    }
+
+    .section h2 {
+      color: #002b36;
+      font-size: 28px;
+      margin-bottom: 20px;
+      border-left: 4px solid #268bd2;
+      padding-left: 15px;
+    }
+
+    .section p {
+      font-size: 20px;
+      line-height: 1.8;
+      margin-bottom: 15px;
+      text-align: justify;
+      color: #444;
+    }
+
+    /* 右侧导航栏 */
+    .side-nav {
+      position: fixed;
+      top: 100px;
+      right: 20px;
+      width: 200px;
+      background: #fafafa;
+      padding: 20px;
+      border-radius: 8px;
+      border: 1px solid #eee;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    .side-nav a {
+      display: block;
+      color: #268bd2;
+      text-decoration: none;
+      padding: 10px 12px;
+      margin-bottom: 8px;
+      border-radius: 4px;
+      font-size: 15px;
+      transition: all 0.3s ease;
+    }
+
+    .side-nav a:hover {
+      background: #eef;
+      color: #002b36;
+      transform: translateX(5px);
+    }
+
+    .side-nav a.active {
+      font-weight: bold;
+      color: #002b36;
+      background: #e6f3ff;
+    }
+
+    /* 插入图片样式 */
+    .section img {
+      display: block;
+      width: 100%;
+      max-width: 500px;
+      margin: 20px auto;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+  <!-- 顶部导航栏 -->
+  <nav>
+    <div class="logo">LOGO</div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li>
+        <a href="#">Team ▾</a>
+        <ul>
+          <li><a href="members.html">Members</a></li>
+          <li><a href="attribution.html">Attribution</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">Project ▾</a>
+        <ul>
+          <li><a href="background.html">Background</a></li>
+          <li><a href="design.html">Design</a></li>
+          <li><a href="result.html">Result</a></li>
+          <li><a href="discussion.html">Discussion</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">Documentation ▾</a>
+        <ul>
+          <li><a href="notebook.html">Notebook</a></li>
+          <li><a href="protocal.html">Protocol</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- 横向进度条（导航栏下方） -->
+  <div id="horizontalProgressBar">
+    <div id="horizontalProgress"></div>
+  </div>
+
+  <!-- 主内容区 -->
+  <div class="content">
+    <h1 class="page-title">Experimental Design</h1>
+
+    <div class="section" id="section1">
+      <h2>Rational Design Strategy</h2>
+      <p>Our design strategy focused on modifying the substrate-binding pocket of PyAly to enhance tetrasaccharide production. Based on structural analysis, we identified four key residues (R143, R159, F170, K172) in loop2 region that influence substrate recognition and product distribution.</p>
+      <p>These residues were selected for saturation mutagenesis to explore their individual and combined effects on tetrasaccharide yield.</p>
+      <img src="https://via.placeholder.com/500x300?text=PyAly+Structure" alt="PyAly Structure">
+    </div>
+
+    <div class="section" id="section2">
+      <h2>Site-Directed Mutagenesis</h2>
+      <p>We employed saturation mutagenesis at four key positions to generate single mutants. Each position was mutated to all 20 natural amino acids to comprehensively explore the mutational space.</p>
+      <p>The mutants were expressed in E. coli and purified for enzymatic activity assays. Tetrasaccharide content in the degradation products was measured using HPLC analysis.</p>
+      <img src="https://via.placeholder.com/500x300?text=Mutagenesis+Process" alt="Mutagenesis Process">
+    </div>
+
+    <div class="section" id="section3">
+      <h2>Machine Learning Integration</h2>
+      <p>Single mutant data were used to train machine learning models for predicting tetrasaccharide yield of multiple-site mutants. We employed random forest and gradient boosting algorithms to identify optimal combinations.</p>
+      <p>The models considered structural features, physicochemical properties, and sequence conservation to predict the effects of multiple mutations.</p>
+      <img src="https://via.placeholder.com/500x300?text=ML+Workflow" alt="Machine Learning Workflow">
+    </div>
+
+    <div class="section" id="section4">
+      <h2>Multiple Mutant Design</h2>
+      <p>Based on machine learning predictions, we designed four multiple-site mutants combining favorable mutations from single mutant analysis. These included double and triple mutants predicted to enhance tetrasaccharide production.</p>
+      <p>The designed mutants were experimentally validated to confirm the predictive accuracy of our models and to identify the most effective combinations.</p>
+    </div>
+  </div>
+
+  <!-- 右侧导航 -->
+  <div class="side-nav">
+    <a href="#section1" class="active">Rational Design</a>
+    <a href="#section2">Mutagenesis</a>
+    <a href="#section3">Machine Learning</a>
+    <a href="#section4">Multiple Mutants</a>
+  </div>
+
+  <!-- 滚动进度 JS -->
+  <script>
+    // 横向进度条
+    window.addEventListener("scroll", () => {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progressWidth = (scrollTop / scrollHeight) * 100;
+      document.getElementById("horizontalProgress").style.width = progressWidth + "%";
+    });
+
+    // 侧边导航点击 + 高亮
+    document.querySelectorAll('.side-nav a').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+
+        document.querySelectorAll('.side-nav a').forEach(link => link.classList.remove('active'));
+        this.classList.add('active');
+
+        targetElement.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+
+    // 滚动时自动高亮当前 section
+    window.addEventListener('scroll', () => {
+      const sections = document.querySelectorAll('.section');
+      const navLinks = document.querySelectorAll('.side-nav a');
+      let current = '';
+
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 160;
+        if (window.scrollY >= sectionTop) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + current) {
+          link.classList.add('active');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

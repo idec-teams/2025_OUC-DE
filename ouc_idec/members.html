@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Team Members - iDEC Project</title>
+  <style>
+    /* 基础样式 */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body, html {
+      font-family: Arial, sans-serif;
+      scroll-behavior: smooth;
+      background: #fdf6e3;
+      color: #333;
+      line-height: 1.8;
+    }
+
+    /* 顶部导航栏 */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: #002b36;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 40px;
+      height: 80px;
+      z-index: 1000;
+    }
+    nav .logo {
+      font-size: 20px;
+      font-weight: bold;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+    }
+    nav ul li {
+      position: relative;
+      margin-left: 20px;
+      cursor: pointer;
+    }
+    nav ul li a {
+      color: rgb(255, 255, 255);
+      text-decoration: none;
+      padding: 25px 15px;
+      display: block;
+      font-size: 20px;
+    }
+    nav ul li:hover ul {
+      display: block;
+    }
+    nav ul ul {
+      display: none;
+      position: absolute;
+      top: 50px;
+      left: 0;
+      background: #073642;
+      padding: 0;
+      min-width: 150px;
+    }
+    nav ul ul li {
+      margin: 0;
+    }
+    nav ul ul li a {
+      padding: 10px 15px;
+      font-size: 18px;
+    }
+    nav ul ul li a:hover {
+      background: #586e75;
+    }
+
+    /* 横向进度条 */
+    #horizontalProgressBar {
+      position: fixed;
+      top: 80px;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: rgba(0, 43, 54, 0.1);
+      z-index: 999;
+    }
+    #horizontalProgress {
+      height: 100%;
+      background: #268bd2;
+      width: 0%;
+      transition: width 0.1s ease-out;
+    }
+
+    /* 主内容区 */
+    .content {
+      margin-top: 100px;
+      max-width: 85%;
+      margin-left: auto;
+      margin-right: 220px;
+      padding: 40px;
+      background: #fdf6e3;
+    }
+
+    .page-title {
+      font-size: 36px;
+      font-weight: bold;
+      color: #002b36;
+      margin-bottom: 30px;
+      border-bottom: 3px solid #268bd2;
+      padding-bottom: 10px;
+    }
+
+    .section {
+      margin-bottom: 80px;
+    }
+
+    .section h2 {
+      color: #002b36;
+      font-size: 28px;
+      margin-bottom: 20px;
+      border-left: 4px solid #268bd2;
+      padding-left: 15px;
+    }
+
+    .section p {
+      font-size: 20px;
+      line-height: 1.8;
+      margin-bottom: 15px;
+      text-align: justify;
+      color: #444;
+    }
+
+    /* 右侧导航栏 */
+    .side-nav {
+      position: fixed;
+      top: 100px;
+      right: 20px;
+      width: 200px;
+      background: #fafafa;
+      padding: 20px;
+      border-radius: 8px;
+      border: 1px solid #eee;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    .side-nav a {
+      display: block;
+      color: #268bd2;
+      text-decoration: none;
+      padding: 10px 12px;
+      margin-bottom: 8px;
+      border-radius: 4px;
+      font-size: 15px;
+      transition: all 0.3s ease;
+    }
+
+    .side-nav a:hover {
+      background: #eef;
+      color: #002b36;
+      transform: translateX(5px);
+    }
+
+    .side-nav a.active {
+      font-weight: bold;
+      color: #002b36;
+      background: #e6f3ff;
+    }
+
+    /* 团队成员卡片样式 */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .team-member {
+      background: white;
+      border-radius: 12px;
+      padding: 25px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .team-member:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    }
+
+    .member-photo {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 0 auto 20px;
+      display: block;
+      border: 4px solid #268bd2;
+    }
+
+    .member-name {
+      font-size: 24px;
+      font-weight: bold;
+      color: #002b36;
+      text-align: center;
+      margin-bottom: 8px;
+    }
+
+    .member-role {
+      font-size: 18px;
+      color: #268bd2;
+      text-align: center;
+      margin-bottom: 15px;
+      font-weight: 600;
+    }
+
+    .member-bio {
+      font-size: 16px;
+      line-height: 1.6;
+      color: #555;
+      text-align: justify;
+    }
+
+    .member-contact {
+      margin-top: 15px;
+      font-size: 14px;
+      color: #666;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <!-- 顶部导航栏 -->
+  <nav>
+    <div class="logo">LOGO</div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li>
+        <a href="#">Team ▾</a>
+        <ul>
+          <li><a href="members.html">Members</a></li>
+          <li><a href="attribution.html">Attribution</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">Project ▾</a>
+        <ul>
+          <li><a href="background.html">Background</a></li>
+          <li><a href="design.html">Design</a></li>
+          <li><a href="result.html">Result</a></li>
+          <li><a href="discussion.html">Discussion</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">Documentation ▾</a>
+        <ul>
+          <li><a href="notebook.html">Notebook</a></li>
+          <li><a href="protocal.html">Protocol</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- 横向进度条（导航栏下方） -->
+  <div id="horizontalProgressBar">
+    <div id="horizontalProgress"></div>
+  </div>
+
+  <!-- 主内容区 -->
+  <div class="content">
+    <h1 class="page-title">Team Members</h1>
+
+    <div class="section" id="section1">
+      <h2>Our Research Team</h2>
+      <p>Our team consists of dedicated students and researchers from Ocean University of China, working collaboratively to advance alginate lyase engineering through innovative computational and experimental approaches.</p>
+      
+      <div class="team-grid">
+        <div class="team-member">
+          <img src="https://via.placeholder.com/120x120?text=Photo" alt="Team Member" class="member-photo">
+          <div class="member-name">Zhang Wei</div>
+          <div class="member-role">Project Leader</div>
+          <div class="member-bio">
+            Leads the overall project coordination and experimental design. Specializes in enzyme engineering and structural biology. Coordinates team activities and ensures project milestones are met.
+          </div>
+          <div class="member-contact">Email: zhangwei@example.com</div>
+        </div>
+
+        <div class="team-member">
+          <img src="https://via.placeholder.com/120x120?text=Photo" alt="Team Member" class="member-photo">
+          <div class="member-name">Li Ming</div>
+          <div class="member-role">Computational Lead</div>
+          <div class="member-bio">
+            Responsible for machine learning model development and structural analysis. Expertise in bioinformatics and computational biology. Developed the predictive models for mutant screening.
+          </div>
+          <div class="member-contact">Email: liming@example.com</div>
+        </div>
+
+        <div class="team-member">
+          <img src="https://via.placeholder.com/120x120?text=Photo" alt="Team Member" class="member-photo">
+          <div class="member-name">Wang Fang</div>
+          <div class="member-role">Experimental Lead</div>
+          <div class="member-bio">
+            Manages laboratory experiments including mutagenesis, protein expression, and enzymatic assays. Ensures experimental protocols are followed precisely and results are reproducible.
+          </div>
+          <div class="member-contact">Email: wangfang@example.com</div>
+        </div>
+
+        <div class="team-member">
+          <img src="https://via.placeholder.com/120x120?text=Photo" alt="Team Member" class="member-photo">
+          <div class="member-name">Chen Yu</div>
+          <div class="member-role">Data Analyst</div>
+          <div class="member-bio">
+            Analyzes HPLC data and statistical results. Develops data visualization tools and ensures data integrity. Collaborates with computational team for model validation.
+          </div>
+          <div class="member-contact">Email: chenyu@example.com</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section" id="section2">
+      <h2>Advisors and Mentors</h2>
+      <div class="team-grid">
+        <div class="team-member">
+          <img src="https://via.placeholder.com/120x120?text=Photo" alt="Advisor" class="member-photo">
+          <div class="member-name">Prof. Liu Hong</div>
+          <div class="member-role">Principal Investigator</div>
+          <div class="member-bio">
+            Provides overall scientific guidance and project supervision. Expert in enzymology and protein engineering with extensive experience in industrial applications.
+          </div>
+          <div class="member-contact">Email: liuhong@ouc.edu.cn</div>
+        </div>
+
+        <div class="team-member">
+          <img src="https://via.placeholder.com/120x120?text=Photo" alt="Advisor" class="member-photo">
+          <div class="member-name">Dr. Zhao Qiang</div>
+          <div class="member-role">Technical Advisor</div>
+          <div class="member-bio">
+            Provides technical expertise in molecular biology and protein purification. Assists with experimental design and troubleshooting complex protocols.
+          </div>
+          <div class="member-contact">Email: zhaoqiang@ouc.edu.cn</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 右侧导航 -->
+  <div class="side-nav">
+    <a href="#section1" class="active">Research Team</a>
+    <a href="#section2">Advisors</a>
+  </div>
+
+  <!-- 滚动进度 JS -->
+  <script>
+    // 横向进度条
+    window.addEventListener("scroll", () => {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progressWidth = (scrollTop / scrollHeight) * 100;
+      document.getElementById("horizontalProgress").style.width = progressWidth + "%";
+    });
+
+    // 侧边导航点击 + 高亮
+    document.querySelectorAll('.side-nav a').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+
+        document.querySelectorAll('.side-nav a').forEach(link => link.classList.remove('active'));
+        this.classList.add('active');
+
+        targetElement.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+
+    // 滚动时自动高亮当前 section
+    window.addEventListener('scroll', () => {
+      const sections = document.querySelectorAll('.section');
+      const navLinks = document.querySelectorAll('.side-nav a');
+      let current = '';
+
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 160;
+        if (window.scrollY >= sectionTop) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + current) {
+          link.classList.add('active');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

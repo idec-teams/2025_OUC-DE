@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Results - Alginate Lyase Engineering</title>
+  <style>
+    /* 基础样式 */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body, html {
+      font-family: Arial, sans-serif;
+      scroll-behavior: smooth;
+      background: #fdf6e3;
+      color: #333;
+      line-height: 1.8;
+    }
+
+    /* 顶部导航栏 */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: #002b36;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 40px;
+      height: 80px;
+      z-index: 1000;
+    }
+    nav .logo {
+      font-size: 20px;
+      font-weight: bold;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+    }
+    nav ul li {
+      position: relative;
+      margin-left: 20px;
+      cursor: pointer;
+    }
+    nav ul li a {
+      color: rgb(255, 255, 255);
+      text-decoration: none;
+      padding: 25px 15px;
+      display: block;
+      font-size: 20px;
+    }
+    nav ul li:hover ul {
+      display: block;
+    }
+    nav ul ul {
+      display: none;
+      position: absolute;
+      top: 50px;
+      left: 0;
+      background: #073642;
+      padding: 0;
+      min-width: 150px;
+    }
+    nav ul ul li {
+      margin: 0;
+    }
+    nav ul ul li a {
+      padding: 10px 15px;
+      font-size: 18px;
+    }
+    nav ul ul li a:hover {
+      background: #586e75;
+    }
+
+    /* 横向进度条 */
+    #horizontalProgressBar {
+      position: fixed;
+      top: 80px;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: rgba(0, 43, 54, 0.1);
+      z-index: 999;
+    }
+    #horizontalProgress {
+      height: 100%;
+      background: #268bd2;
+      width: 0%;
+      transition: width 0.1s ease-out;
+    }
+
+    /* 主内容区 */
+    .content {
+      margin-top: 100px;
+      max-width: 85%;
+      margin-left: auto;
+      margin-right: 220px;
+      padding: 40px;
+      background: #fdf6e3;
+    }
+
+    .page-title {
+      font-size: 36px;
+      font-weight: bold;
+      color: #002b36;
+      margin-bottom: 30px;
+      border-bottom: 3px solid #268bd2;
+      padding-bottom: 10px;
+    }
+
+    .section {
+      margin-bottom: 80px;
+    }
+
+    .section h2 {
+      color: #002b36;
+      font-size: 28px;
+      margin-bottom: 20px;
+      border-left: 4px solid #268bd2;
+      padding-left: 15px;
+    }
+
+    .section p {
+      font-size: 20px;
+      line-height: 1.8;
+      margin-bottom: 15px;
+      text-align: justify;
+      color: #444;
+    }
+
+    /* 右侧导航栏 */
+    .side-nav {
+      position: fixed;
+      top: 100px;
+      right: 20px;
+      width: 200px;
+      background: #fafafa;
+      padding: 20px;
+      border-radius: 8px;
+      border: 1px solid #eee;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    .side-nav a {
+      display: block;
+      color: #268bd2;
+      text-decoration: none;
+      padding: 10px 12px;
+      margin-bottom: 8px;
+      border-radius: 4px;
+      font-size: 15px;
+      transition: all 0.3s ease;
+    }
+
+    .side-nav a:hover {
+      background: #eef;
+      color: #002b36;
+      transform: translateX(5px);
+    }
+
+    .side-nav a.active {
+      font-weight: bold;
+      color: #002b36;
+      background: #e6f3ff;
+    }
+
+    /* 插入图片样式 */
+    .section img {
+      display: block;
+      width: 100%;
+      max-width: 500px;
+      margin: 20px auto;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    /* 表格样式 */
+    .results-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: 18px;
+    }
+    .results-table th, .results-table td {
+      border: 1px solid #ddd;
+      padding: 12px;
+      text-align: center;
+    }
+    .results-table th {
+      background-color: #268bd2;
+      color: white;
+    }
+    .results-table tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+    .results-table tr:hover {
+      background-color: #e6f3ff;
+    }
+  </style>
+</head>
+<body>
+  <!-- 顶部导航栏 -->
+  <nav>
+    <div class="logo">LOGO</div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li>
+        <a href="#">Team ▾</a>
+        <ul>
+          <li><a href="members.html">Members</a></li>
+          <li><a href="attribution.html">Attribution</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">Project ▾</a>
+        <ul>
+          <li><a href="background.html">Background</a></li>
+          <li><a href="design.html">Design</a></li>
+          <li><a href="result.html">Result</a></li>
+          <li><a href="discussion.html">Discussion</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">Documentation ▾</a>
+        <ul>
+          <li><a href="notebook.html">Notebook</a></li>
+          <li><a href="protocal.html">Protocol</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- 横向进度条（导航栏下方） -->
+  <div id="horizontalProgressBar">
+    <div id="horizontalProgress"></div>
+  </div>
+
+  <!-- 主内容区 -->
+  <div class="content">
+    <h1 class="page-title">Experimental Results</h1>
+
+    <div class="section" id="section1">
+      <h2>Single Mutant Screening Results</h2>
+      <p>We successfully generated and screened single mutants at four key positions (R143, R159, F170, K172). The tetrasaccharide content in degradation products was measured using HPLC analysis.</p>
+      
+      <table class="results-table">
+        <thead>
+          <tr>
+            <th>Mutation Position</th>
+            <th>Best Mutant</th>
+            <th>Tetrasaccharide Content</th>
+            <th>Improvement</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>R143</td>
+            <td>R143A</td>
+            <td>32.5%</td>
+            <td>+7.3%</td>
+          </tr>
+          <tr>
+            <td>R159</td>
+            <td>R159N</td>
+            <td>46.2%</td>
+            <td>+21.0%</td>
+          </tr>
+          <tr>
+            <td>F170</td>
+            <td>F170Y</td>
+            <td>28.9%</td>
+            <td>+3.7%</td>
+          </tr>
+          <tr>
+            <td>K172</td>
+            <td>K172E</td>
+            <td>35.8%</td>
+            <td>+10.6%</td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <p>R159N showed the most significant improvement, increasing tetrasaccharide content to 46.2%, representing a 21.0% enhancement over wild-type PyAly.</p>
+      <img src="https://via.placeholder.com/500x300?text=Single+Mutant+Results" alt="Single Mutant Results">
+    </div>
+
+    <div class="section" id="section2">
+      <h2>Machine Learning Predictions</h2>
+      <p>Using single mutant data, we trained machine learning models to predict the effects of multiple mutations. The random forest model achieved the best performance with R² = 0.89 on test data.</p>
+      <p>Four multiple-site mutants were designed based on computational predictions:</p>
+      <ul>
+        <li>R159A_K172E (predicted yield: 34.91%)</li>
+        <li>R159N_F170Y (predicted yield: 42.18%)</li>
+        <li>R143A_R159N_K172E (predicted yield: 38.45%)</li>
+        <li>R159N_F170Y_K172E (predicted yield: 44.72%)</li>
+      </ul>
+      <img src="https://via.placeholder.com/500x300?text=ML+Predictions" alt="Machine Learning Predictions">
+    </div>
+
+    <div class="section" id="section3">
+      <h2>Multiple Mutant Validation</h2>
+      <p>Experimental validation of the designed multiple mutants confirmed the predictive accuracy of our machine learning models.</p>
+      
+      <table class="results-table">
+        <thead>
+          <tr>
+            <th>Mutant</th>
+            <th>Predicted Yield</th>
+            <th>Experimental Yield</th>
+            <th>Deviation</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>R159A_K172E</td>
+            <td>34.91%</td>
+            <td>35.2%</td>
+            <td>+0.29%</td>
+          </tr>
+          <tr>
+            <td>R159N_F170Y</td>
+            <td>42.18%</td>
+            <td>41.8%</td>
+            <td>-0.38%</td>
+          </tr>
+          <tr>
+            <td>R143A_R159N_K172E</td>
+            <td>38.45%</td>
+            <td>39.1%</td>
+            <td>+0.65%</td>
+          </tr>
+          <tr>
+            <td>R159N_F170Y_K172E</td>
+            <td>44.72%</td>
+            <td>43.9%</td>
+            <td>-0.82%</td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <p>The triple mutant R159N_F170Y_K172E achieved the highest tetrasaccharide yield of 43.9%, demonstrating the effectiveness of our combined approach.</p>
+    </div>
+  </div>
+
+  <!-- 右侧导航 -->
+  <div class="side-nav">
+    <a href="#section1" class="active">Single Mutants</a>
+    <a href="#section2">ML Predictions</a>
+    <a href="#section3">Multiple Mutants</a>
+  </div>
+
+  <!-- 滚动进度 JS -->
+  <script>
+    // 横向进度条
+    window.addEventListener("scroll", () => {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progressWidth = (scrollTop / scrollHeight) * 100;
+      document.getElementById("horizontalProgress").style.width = progressWidth + "%";
+    });
+
+    // 侧边导航点击 + 高亮
+    document.querySelectorAll('.side-nav a').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+
+        document.querySelectorAll('.side-nav a').forEach(link => link.classList.remove('active'));
+        this.classList.add('active');
+
+        targetElement.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+
+    // 滚动时自动高亮当前 section
+    window.addEventListener('scroll', () => {
+      const sections = document.querySelectorAll('.section');
+      const navLinks = document.querySelectorAll('.side-nav a');
+      let current = '';
+
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 160;
+        if (window.scrollY >= sectionTop) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + current) {
+          link.classList.add('active');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
