@@ -2,11 +2,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ouc_iDEC</title>
+  <title>OUC-DE - iDEC</title>
   <style>
     /* 基础样式 */
     * {margin: 0; padding: 0; box-sizing: border-box;}
-    body, html {height: 100%; font-family: Arial, sans-serif; scroll-behavior: smooth;}
+    body, html {height: 100%; font-family: Arial, sans-serif;}
     
     /* 导航栏 */
     nav {
@@ -23,7 +23,8 @@
       height: 80px;
       z-index: 1000;
     }
-    nav .logo {font-size: 20px; font-weight: bold;}
+    nav .logo {height: 58px; 
+      width: auto;}
     nav ul {list-style: none; display: flex;}
     nav ul li {position: relative; margin-left: 20px; cursor: pointer;}
     nav ul li a {
@@ -39,70 +40,143 @@
     nav ul ul li a {padding: 10px 15px; font-size: 18px;}
     nav ul ul li a:hover {background: #586e75;}
 
-    /* 页面全屏部分 */
-    section {
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 20px;
-      scroll-snap-align: start;
-      flex-direction: column;
-      opacity: 0;
-      transform: translateY(50px);
-      transition: opacity 1s ease, transform 1s ease;
-    }
-    section.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    h1 {font-size: 42px; margin-bottom: 20px;}
-    p {font-size: 22px; line-height: 1.6; max-width: 900px;}
+/* 首页独立部分 */
+.first-page {
+  height: 100vh;
+  padding-top: 80px;
+  background: url('images/first.webp') no-repeat center center;
+  background-size: cover;
+  position: relative;
+  color: #002b36;
+  text-shadow: 1px 1px 3px rgba(224, 232, 245, 0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
 
-    /* 页面背景 */
-    .page1 {background: #fdf6e3;}
-    .page2 {background: #eee8d5;}
-    .page3 {background: #93a1a1; color: white;}
-    .page4 {background: #657b83; color: white;}
-    .page5 {background: #073642; color: white;}
+.first-content h1 {
+  font-size: 45px;
+  position: relative;
+  z-index: 1;
+  padding: 2rem 4%; 
+  border-radius: 10px;
+  max-width: 85%; 
+  margin: 0 auto; 
+}
 
-    /* 滚动容器 */
-    main {
-      height: 100vh;
-      overflow-y: scroll;
-      scroll-snap-type: y mandatory;
-    }
 
-    /* 右侧进度条 */
-    #progressBar {
-      position: fixed;
-      right: 10px;
-      top: 0;
-      width: 5px;
-      height: 100%;
-      background: rgba(255,255,255,0.2);
-    }
-    #progress {
-      width: 100%;
-      background: #268bd2;
-      height: 0;
-    }
+.first-content p {
+  font-size: 22px;
+  line-height: 1.6;
+  max-width: 900px;
+}
+    
+    /* 翻页指示器 */
+.scroll-indicator {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #002b36;
+  font-size: 24px;
+  animation: bounce 2s infinite;
+  cursor: pointer;
+  z-index: 1;
+}
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {transform: translateY(0) translateX(-50%);}
+  40% {transform: translateY(-20px) translateX(-50%);}
+  60% {transform: translateY(-10px) translateX(-50%);}
+}
+    
+
+/* 主内容区域 */
+.gradient-content {
+  position: relative;
+  z-index: 800;
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #fdf6e3, #073642);
+}
+.gradient-content.active {
+  transform: translateY(0);
+}
+
+/* 内容区块 */
+.content-block {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10px 10%;
+  font-size: 18px;
+  line-height: 1.8;
+  color: #002b36;
+  text-align: left;
+}
+.content-block:nth-child(even) {
+  text-align: right;
+  align-items: flex-end;
+}
+
+/* 文字样式 */
+.content-block h1 {
+  font-size: 30px;
+  margin-bottom: 15px;
+  position: relative;
+  padding-left: 20px;
+}
+
+/* 添加左侧竖栏 */
+.content-block h1::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 5px;
+  background-color: #268bd2;
+  border-radius: 3px;
+}
+
+.content-block:nth-child(even) h1 {
+  padding-left: 0;
+  padding-right: 20px;
+}
+
+.content-block:nth-child(even) h1::before {
+  left: auto;
+  right: 0;
+}
+
+
+/* 深色区块文字颜色调整 */
+.dark-text {color: white;}
+.gradient-content .content-block:nth-child(n+3) {
+  color: white;
+}
+
+.gradient-content .content-block:nth-child(n+3) h1 {
+  color: white;
+}
+
+.gradient-content .content-block:nth-child(n+3) h1::before {
+  background-color: #268bd2;
+}
+
+
   </style>
 </head>
 <body>
   <!-- 顶部导航栏 -->
   <nav>
-    <div class="logo">LOGO</div>
+    <img src="images/logo.jpg"  class="logo">
     <ul>
       <li><a href="#">Home</a></li>
-      <li>
-        <a href="#">Team ▾</a>
-        <ul>
-          <li><a href="members.html">Members</a></li>
-          <li><a href="attribution.html">Attribution</a></li>
-        </ul>
-      </li>
+<li>
+  <a href="members.html">Team</a>
+</li>
       <li>
         <a href="#">Project ▾</a>
         <ul>
@@ -115,86 +189,86 @@
       <li>
         <a href="#">Documentation ▾</a>
         <ul>
-          <li><a href="notebook.html">Notebook</a></li>
-          <li><a href="protocal.html">Protocol</a></li>
+          <li><a href="2025 OUC-DE Notebook.pdf" target="_blank">Notebook</a></li>
+          <li><a href="2025 OUC-DE Protocols.pdf" target="_blank">Protocol</a></li>
+          <li><a href="2025 OUC-DE Supplementary Materials.pdf" target="_blank">Supplementary Materials</a></li>
         </ul>
       </li>
     </ul>
   </nav>
 
-  <!-- 滚动页面 -->
-  <main>
-    <section class="page1">
-      <h1>Welcome to our enzyme engineering revolution!</h1>
-      <p>We've made <b>alginate lyase smarter</b> to produce more high-value tetrasaccharides</p>
-      <p><i>介绍我们的项目......</i></p>
-    </section>
+  <!-- 首页独立部分 -->
+  <div class="first-page">
+    <div class="first-content">
+      <br><br><br><br><br><br><h1>Semi-Rational Design and Machine Learning for Enhancing Tetrasaccharide Production in Alginate Lyase PyAly</h1>
+      </div>
+      <br><br><br><br><br><br><p>Welcome to our project !</p>
+      <div class="scroll-indicator">↓</div>
+    </div>
+  </div>
+  
 
-    <section class="page2">
-      <h1>Project Background & Significance</h1>
-      <p>Alginate oligosaccharides (DP2-4) are like <b>‘golden molecules’ from the sea</b>, with bioactivities including antioxidant, anti-inflammatory, and antitumor effects</p>
-      <p>But traditional methods produce only limited amounts of tetrasaccharides...</p>
-      <p>（现有的内容是随便弄的）</p>
-    </section>
-
-    <section class="page3">
-      <h1>Innovative Methodology</h1>
-      <p>We adopted a dual-engine strategy combining:</p>
-      <p>🔹 Structure-guided site-directed mutagenesis<br>
-         🔹 Machine Learning optimal combination prediction<br>
-         🔹 Experimental validation closed-loop optimization</p>
-    </section>
-
-    <section class="page4">
-      <h1>Key Achievements</h1>
-      <p>✅ Single mutant <b>R159N</b>: Tetrasaccharide content increased to 46.2%<br>
-         ✅ Double mutant <b>R159A_K172E</b>: Predicted yield 34.91%<br>
-         ✅ Machine learning models accurately predicted mutation effects</p>
-    </section>
-
-    <section class="page5">
-      <h1>Application Prospects</h1>
-      <p>High-purity tetrasaccharide production for pharmaceuticals<br>
-         Functional food additives<br>
-         Methodological reference for other enzyme engineering projects</p>
-    </section>
-  </main>
-
-  <!-- 右侧滚动条 -->
-  <div id="progressBar">
-    <div id="progress"></div>
+<!-- 主内容区域 -->
+<div class="gradient-content">
+  <!-- The Challenge -->
+  <div class="content-block">
+    <h1>Introduction of Our Project</h1><br>
+    <p><b>Alginate</b> is an acidic linear polysaccharide widely found in brown algae, composed of β-D-mannuronic acid (M) and α-L-guluronic acid (G) linked by 1,4-glycosidic bonds in alternating or consecutive arrangements to form polymers.</p><br>
+    <p><b>Alginate oligosaccharides (AOSs)</b>, obtained by the cleavage of alginate with alginate lyase, possess diverse biological activities, including antioxidant, anti-inflammatory, antitumor, and plant growth-promoting effects. Their activity is closely related to degree of polymerization (DP), with low-molecular-weight AOSs (DP 2~4) showing particularly strong physiological effects.</p><br>
+    <p>Therefore, <b>increasing the proportion of tetrasaccharides (DP4)</b> in alginate lyase products is valuable for understanding substrate recognition and for the targeted preparation of high-value oligosaccharides.</p>
   </div>
 
-  <script>
-    const main = document.querySelector("main");
-    const progress = document.getElementById("progress");
-    const sections = document.querySelectorAll("section");
+  <!-- Our Idea -->
+  <div class="content-block">
+    <h1>Idea of Our Design</h1>
+    <p>Instead of just relying on trial-and-error, we combined <b>semi-rational design</b> — using structural biology to pick key sites for saturation mutagenesis, and <b>machine learning</b> — training models on experimental data to predict which mutations are most likely to boost DP4 production.</p><br>
+    <p>Together, this strategy lets us redesign PyAly to make more tetrasaccharides, faster and smarter.</p>
 
-    // 页面滚动进度条
-    main.addEventListener("scroll", () => {
-      let scrollTop = main.scrollTop;
-      let scrollHeight = main.scrollHeight - main.clientHeight;
-      let progressHeight = (scrollTop / scrollHeight) * 100;
-      progress.style.height = progressHeight + "%";
+  </div>
 
-      // 检查当前section是否进入可视区
-      sections.forEach(sec => {
-        let rect = sec.getBoundingClientRect();
-        if (rect.top < window.innerHeight * 0.7 && rect.bottom > 100) {
-          sec.classList.add("visible");
-        }
-      });
-    });
+  <!-- Key Achievements -->
+  <div class="content-block">
+    <h1>Approach & Key Achievements</h1>
+    <p><b>1 Understand the enzyme’s structure: </b> 
+We analyzed PyAly’s 3D structure and found four key amino acids (R143, R159, F170, K172) that control how sugars fit into the enzyme.<p>
+    <p><b>2 Make single mutations: </b> 
+By changing these amino acids one by one, we tested which variants increased DP4 production.<p>
+    <p><b>3 Use Machine Learning to predict the best combos: </b> 
+We trained machine learning models on our experimental data to suggest the most promising double mutations.<p>
+    <p><b>4 Build and test these variants: </b> 
+We created these new enzymes and measured their sugar outputs with HPLC.<p><br>
+    <p>Eventually, we identified mutations (like at R159 and K172) that significantly increased DP4 yield, built a machine learning model that predicts good mutation combinations, and developed a workflow that combines wet-lab experiments with computational predictions, making enzyme engineering more efficient and powerful.</p>
+  </div>
 
-    // 页面加载时先检查一次
-    window.onload = () => {
-      sections.forEach(sec => {
-        let rect = sec.getBoundingClientRect();
-        if (rect.top < window.innerHeight * 0.7 && rect.bottom > 100) {
-          sec.classList.add("visible");
-        }
-      });
-    };
-  </script>
+  <!-- Why It Matters -->
+  <div class="content-block dark-text">
+    <h1>Why It Matters 🌍</h1>
+    <p>By <b>boosting tetrasaccharide production</b>, we can:
+    <p>    Support sustainable use of seaweed resources</p>
+    <p>    Provide more bioactive sugars for agriculture and medicine</p>
+    <p>    Show how AI + biology can work together to solve real-world problems.</p><br>
+    <p>This project isn’t just about one enzyme — it’s a blueprint for <b>smarter enzyme engineering</b> in the future.</p>
+
+  </div>
+</div>
+
+<script>
+  const gradientContent = document.querySelector('.gradient-content');
+  const scrollIndicator = document.querySelector('.scroll-indicator');
+  let isTransitioned = false;
+
+  scrollIndicator.addEventListener('click', () => {
+    gradientContent.classList.add('active');
+    window.scrollTo({top: window.innerHeight, behavior: 'smooth'});
+  });
+
+  window.addEventListener('scroll', () => {
+    if (!isTransitioned && window.scrollY > window.innerHeight * 0.3) {
+      gradientContent.classList.add('active');
+      isTransitioned = true;
+    }
+  });
+
+</script>
 </body>
 </html>

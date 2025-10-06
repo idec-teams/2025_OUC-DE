@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Background - Alginate Lyase Research</title>
+  <title>OUC-DE - Background
+  </title>
   <style>
     /* 基础样式 */
     * {
@@ -16,10 +17,10 @@
       scroll-behavior: smooth;
       background: #fdf6e3;
       color: #333;
-      line-height: 1.8; /* 增加全局行距 */
+      line-height: 1.8;
     }
 
-    /* 顶部导航栏 */
+    /* 导航栏 */
     nav {
       position: fixed;
       top: 0;
@@ -34,53 +35,27 @@
       height: 80px;
       z-index: 1000;
     }
-    nav .logo {
-      font-size: 20px;
-      font-weight: bold;
-    }
-    nav ul {
-      list-style: none;
-      display: flex;
-    }
-    nav ul li {
-      position: relative;
-      margin-left: 20px;
-      cursor: pointer;
-    }
+    nav .logo {height: 58px;
+      width: auto;}
+    nav ul {list-style: none; display: flex;}
+    nav ul li {position: relative; margin-left: 20px; cursor: pointer;}
     nav ul li a {
-      color: rgb(255, 255, 255);
-      text-decoration: none;
-      padding: 25px 15px;
-      display: block;
-      font-size: 20px;
+      color: white; text-decoration: none;
+      padding: 25px 15px; display: block; font-size: 20px;
     }
-    nav ul li:hover ul {
-      display: block;
-    }
+    nav ul li:hover ul {display: block;}
     nav ul ul {
-      display: none;
-      position: absolute;
-      top: 50px;
-      left: 0;
-      background: #073642;
-      padding: 0;
-      min-width: 150px;
+      display: none; position: absolute; top: 50px; left: 0;
+      background: #073642; padding: 0; min-width: 150px;
     }
-    nav ul ul li {
-      margin: 0;
-    }
-    nav ul ul li a {
-      padding: 10px 15px;
-      font-size: 18px;
-    }
-    nav ul ul li a:hover {
-      background: #586e75;
-    }
+    nav ul ul li {margin: 0;}
+    nav ul ul li a {padding: 5px 15px; font-size: 18px;}
+    nav ul ul li a:hover {background: #586e75;}
 
     /* 横向进度条 */
     #horizontalProgressBar {
       position: fixed;
-      top: 80px; /* 导航栏高度 */
+      top: 80px;
       left: 0;
       width: 100%;
       height: 4px;
@@ -96,7 +71,7 @@
 
     /* 主内容区 */
     .content {
-      margin-top: 100px; /* 导航栏高度 + 进度条高度 + 缓冲 */
+      margin-top: 100px; 
       max-width: 85%;
       margin-left: auto;
       margin-right: 220px;
@@ -127,7 +102,7 @@
 
     .section p {
       font-size: 20px;
-      line-height: 1.8; /* 增加行距 */
+      line-height: 1.8;
       margin-bottom: 15px;
       text-align: justify;
       color: #444;
@@ -169,30 +144,17 @@
       background: #e6f3ff;
     }
 
-    /* 插入图片样式 */
-    .section img {
-      display: block;
-      width: 100%;
-      max-width: 500px;
-      margin: 20px auto;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
   </style>
 </head>
 <body>
   <!-- 顶部导航栏 -->
   <nav>
-    <div class="logo">LOGO</div>
+    <img src="images/logo.jpg"  class="logo">
     <ul>
       <li><a href="index.html">Home</a></li>
-      <li>
-        <a href="#">Team ▾</a>
-        <ul>
-          <li><a href="members.html">Members</a></li>
-          <li><a href="attribution.html">Attribution</a></li>
-        </ul>
-      </li>
+<li>
+  <a href="members.html">Team</a>
+</li>
       <li>
         <a href="#">Project ▾</a>
         <ul>
@@ -205,14 +167,15 @@
       <li>
         <a href="#">Documentation ▾</a>
         <ul>
-          <li><a href="notebook.html">Notebook</a></li>
-          <li><a href="protocol.html">Protocol</a></li>
+          <li><a href="2025 OUC-DE Notebook.pdf" target="_blank">Notebook</a></li>
+          <li><a href="2025 OUC-DE Protocols.pdf" target="_blank">Protocol</a></li>
+          <li><a href="2025 OUC-DE Supplementary Materials.pdf" target="_blank">Supplementary Materials</a></li>
         </ul>
       </li>
     </ul>
   </nav>
 
-  <!-- 横向进度条（导航栏下方） -->
+  <!-- 横向进度条 -->
   <div id="horizontalProgressBar">
     <div id="horizontalProgress"></div>
   </div>
@@ -225,21 +188,21 @@
       <h2>Alginate Structure and Composition</h2>
       <p>Alginate is an acidic linear polysaccharide widely found in brown algae, composed of β-D-mannuronic acid (M) and α-L-guluronic acid (G) linked by 1,4-glycosidic bonds in alternating or consecutive arrangements to form polymers.</p>
       <p>Depending on the arrangement of M and G residues, alginate can form polyG (poly-guluronic acid), polyM (poly-mannuronic acid), or alternating M/G sequences (alternating M/G sequences).</p>
-      <img src="https://via.placeholder.com/500x300?text=Alginate+Structure" alt="Alginate Structure">
+   
     </div>
 
     <div class="section" id="section2">
       <h2>Alginate Lyase</h2>
-      <p>Alginate oligosaccharides (AOSs), obtained by the cleavage of alginate with alginate lyase, possess diverse biological activities, including antioxidant, anti-inflammatory, antitumor, and plant growth-promoting effects4. Their activity is closely related to degree of polymerization (DP)5, with low-molecular-weight AOSs (DP 2~4) showing particularly strong physiological effects. </p>
+      <p>Alginate oligosaccharides (AOSs), obtained by the cleavage of alginate with alginate lyase, possess diverse biological activities, including antioxidant, anti-inflammatory, antitumor, and plant growth-promoting effects4. Their activity is closely related to degree of polymerization (DP), with low-molecular-weight AOSs (DP 2~4) showing particularly strong physiological effects. </p>
       <p>Therefore, increasing the proportion of tetrasaccharides (DP4) in alginate lyase products is valuable for understanding substrate recognition and for the targeted preparation of high-value oligosaccharides.</p>
       <p>Alginate lyases depolymerize alginate via a β-elimination mechanism, producing unsaturated AOSs. They are classified as endo-type, cleaving randomly within the chain, or exo-type, degrading from the ends. PL7 family alginate lyases have been extensively studied, with well-characterized structures and catalytic mechanisms.</p>
-      <img src="https://via.placeholder.com/500x300?text=AOSs+Image" alt="Alginate Oligosaccharides">
+
     </div>
 
     <div class="section" id="section3">
       <h2>Alginate Lyases Structure</h2>
       <p>In endolytic PL7 enzymes, loop1 and loop2 in the substrate-binding pocket significantly influence the product distribution. Longer loop1 generally favors disaccharides and trisaccharides, while shorter loops favor higher DP products. Importantly, structural features of PL7 family alginate lyases have been shown to increase substrate affinity at the -3 and -4 subsites, which correlates with stable accumulation of DP4, while the number and position of hydrogen bonds formed in the binding pocket also influence DP4 production, indicating that tetrasaccharide yield can serve as a direct indicator of enzyme engineering outcomes. PyAly, a PL7 alginate lyase from Pyropia yezoensis, is polyM-specific and primarily produces tetrasaccharides, making it an ideal candidate for rational engineering.</p>
-      <img src="https://via.placeholder.com/500x300?text=Lyases+Mechanism" alt="Alginate Lyases">
+ 
     </div>
 
     <div class="section" id="section4">
@@ -252,7 +215,7 @@
     <a href="#section1" class="active">Alginate Structure</a>
     <a href="#section2">Alginate Lyase</a>
     <a href="#section3">Lyases Structure</a>
-    <a href="#section4">the Aim</a>
+    <a href="#section4">The Aim</a>
 
   </div>
 

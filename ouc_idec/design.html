@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Design - Alginate Lyase Engineering</title>
+  <title>OUC-DE - Design</title>
   <style>
     /* 基础样式 */
     * {
@@ -19,7 +19,7 @@
       line-height: 1.8;
     }
 
-    /* 顶部导航栏 */
+    /* 导航栏 */
     nav {
       position: fixed;
       top: 0;
@@ -34,53 +34,27 @@
       height: 80px;
       z-index: 1000;
     }
-    nav .logo {
-      font-size: 20px;
-      font-weight: bold;
-    }
-    nav ul {
-      list-style: none;
-      display: flex;
-    }
-    nav ul li {
-      position: relative;
-      margin-left: 20px;
-      cursor: pointer;
-    }
+    nav .logo {height: 58px; 
+      width: auto;}
+    nav ul {list-style: none; display: flex;}
+    nav ul li {position: relative; margin-left: 20px; cursor: pointer;}
     nav ul li a {
-      color: rgb(255, 255, 255);
-      text-decoration: none;
-      padding: 25px 15px;
-      display: block;
-      font-size: 20px;
+      color: white; text-decoration: none;
+      padding: 25px 15px; display: block; font-size: 20px;
     }
-    nav ul li:hover ul {
-      display: block;
-    }
+    nav ul li:hover ul {display: block;}
     nav ul ul {
-      display: none;
-      position: absolute;
-      top: 50px;
-      left: 0;
-      background: #073642;
-      padding: 0;
-      min-width: 150px;
+      display: none; position: absolute; top: 50px; left: 0;
+      background: #073642; padding: 0; min-width: 150px;
     }
-    nav ul ul li {
-      margin: 0;
-    }
-    nav ul ul li a {
-      padding: 10px 15px;
-      font-size: 18px;
-    }
-    nav ul ul li a:hover {
-      background: #586e75;
-    }
+    nav ul ul li {margin: 0;}
+    nav ul ul li a {padding: 5px 15px; font-size: 18px;}
+    nav ul ul li a:hover {background: #586e75;}
 
     /* 横向进度条 */
     #horizontalProgressBar {
       position: fixed;
-      top: 80px;
+      top: 80px; /* 导航栏高度 */
       left: 0;
       width: 100%;
       height: 4px;
@@ -115,6 +89,7 @@
 
     .section {
       margin-bottom: 80px;
+      
     }
 
     .section h2 {
@@ -169,30 +144,55 @@
       background: #e6f3ff;
     }
 
-    /* 插入图片样式 */
-    .section img {
-      display: block;
-      width: 100%;
-      max-width: 500px;
-      margin: 20px auto;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
+    /* 1. 局部改变字体颜色 */
+.topic {
+  color: #268bd2;
+  font-weight: bold;
+}
+
+.figure {
+  color: #f46a08;
+}
+
+  .figure-caption {
+    text-align: center;
+    font-size: 14px;
+    color: #666;
+    margin-top: 8px;
+    font-style: italic;
+  }
+
+  /* 2. 调整图片大小 */
+.section-image {
+  width: 50%;
+  max-width: 400px;
+  height: auto;
+  margin: 20px auto;
+  display: block;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+.section-image2 {
+  width: 100%;
+  max-width: 750px;
+  height: auto; 
+  margin: 20px auto;
+  display: block;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
   </style>
 </head>
 <body>
   <!-- 顶部导航栏 -->
   <nav>
-    <div class="logo">LOGO</div>
+    <img src="images/logo.jpg"  class="logo">
     <ul>
       <li><a href="index.html">Home</a></li>
-      <li>
-        <a href="#">Team ▾</a>
-        <ul>
-          <li><a href="members.html">Members</a></li>
-          <li><a href="attribution.html">Attribution</a></li>
-        </ul>
-      </li>
+<li>
+  <a href="members.html">Team</a>
+</li>
       <li>
         <a href="#">Project ▾</a>
         <ul>
@@ -205,56 +205,70 @@
       <li>
         <a href="#">Documentation ▾</a>
         <ul>
-          <li><a href="notebook.html">Notebook</a></li>
-          <li><a href="protocal.html">Protocol</a></li>
+          <li><a href="2025 OUC-DE Notebook.pdf" target="_blank">Notebook</a></li>
+          <li><a href="2025 OUC-DE Protocols.pdf" target="_blank">Protocol</a></li>
+          <li><a href="2025 OUC-DE Supplementary Materials.pdf" target="_blank">Supplementary Materials</a></li>
         </ul>
       </li>
     </ul>
   </nav>
 
-  <!-- 横向进度条（导航栏下方） -->
+  <!-- 横向进度条 -->
   <div id="horizontalProgressBar">
     <div id="horizontalProgress"></div>
   </div>
 
   <!-- 主内容区 -->
   <div class="content">
-    <h1 class="page-title">Experimental Design</h1>
+    <h1 class="page-title">Design</h1>
 
     <div class="section" id="section1">
-      <h2>Rational Design Strategy</h2>
-      <p>Our design strategy focused on modifying the substrate-binding pocket of PyAly to enhance tetrasaccharide production. Based on structural analysis, we identified four key residues (R143, R159, F170, K172) in loop2 region that influence substrate recognition and product distribution.</p>
-      <p>These residues were selected for saturation mutagenesis to explore their individual and combined effects on tetrasaccharide yield.</p>
-      <img src="https://via.placeholder.com/500x300?text=PyAly+Structure" alt="PyAly Structure">
-    </div>
+      <h2>Structure-Guided Semi-Rational Design</h2>
+      <p>The core strategy of the project is not random mutagenesis but rather rational analysis based on the crystal structure of PyAly bound to its substrate (M5) (PDB: 7W18), enabling the precise selection of residues with potential key impacts on product distribution for mutagenesis.</p>
+      <p><span class="topic">1 Theoretical Basis: </span>Previous study on the crystal structure of PyAly indicates that the “-” section of the substrate-binding pocket, consisting of subsites -1, -2, -3 <span class="figure">(Figure 1)</span>, plays a decisive role in the distribution of the product, with loop1 (Thr108-Lys117) and loop2 (Arg159-Phe170) dominantly controlling the DP specificity. Alginate lyases with a shorter loop1 are more likely to produce oligosaccharides with higher degrees of polymerization.</p>
+      <p><span class="topic">2 Design Focus: </span>By adjusting the affinity and hydrogen-bond network between the enzyme and the substrate in the "-" region, the substrate binding mode is altered, thereby steering the reaction towards favoring the generation and release of tetrasaccharides.</p>
+      <img src="images/de1.png" class="section-image">
+      <div class="figure-caption">Figure 1. Hydrogen bonding interactions between R159 and K172 and the sugar units from -3 to -1<br><br>
+      </div>
 
     <div class="section" id="section2">
-      <h2>Site-Directed Mutagenesis</h2>
-      <p>We employed saturation mutagenesis at four key positions to generate single mutants. Each position was mutated to all 20 natural amino acids to comprehensively explore the mutational space.</p>
-      <p>The mutants were expressed in E. coli and purified for enzymatic activity assays. Tetrasaccharide content in the degradation products was measured using HPLC analysis.</p>
-      <img src="https://via.placeholder.com/500x300?text=Mutagenesis+Process" alt="Mutagenesis Process">
+      <h2>Selection of Key Residues</h2>
+      <p>Based on structural analysis, <b>four key residues</b> within the substrate-binding pocket were selected for site-directed saturation mutagenesis:</p>
+<p><span class="topic"> R143</span>
+forms two hydrogen bonds with the C-5 carboxyl group of the sugar at the −3 subsite, which is essential for stabilizing the orientation of the substrate.</p>
+<p><span class="topic"> K172</span> forms hydrogen bonds with the hydroxyl groups at the C-2 and C-3 positions of the sugar at the −2 subsite, thereby helping to precisely anchor the substrate.</p>
+<p>Mutations at these sites may disrupt or reshape the hydrogen-bonding network, altering substrate positioning and stability, which in turn can <b>shift product distribution</b> and potentially favor the accumulation of tetrasaccharides.</p>
+<p><span class="topic"> R159 and F170</span> are located at the two termini of loop2. Although loop2 length itself does not directly determine product specificity, differences in loop2 conformation and sequence are known to <b>modulate the geometry of the substrate-binding pocket</b>. Together with loop1 and loop2, they play a critical role in shaping the enzyme–substrate interaction and influencing product length preference.</p>
+<p>Mutations at R159 and F170 may therefore remodel the binding pocket architecture or local charge environment, thereby change the substrate-binding mode and ultimately affect the distribution of oligosac-charide products.</p>
     </div>
 
     <div class="section" id="section3">
-      <h2>Machine Learning Integration</h2>
-      <p>Single mutant data were used to train machine learning models for predicting tetrasaccharide yield of multiple-site mutants. We employed random forest and gradient boosting algorithms to identify optimal combinations.</p>
-      <p>The models considered structural features, physicochemical properties, and sequence conservation to predict the effects of multiple mutations.</p>
-      <img src="https://via.placeholder.com/500x300?text=ML+Workflow" alt="Machine Learning Workflow">
+      <h2>Overall Workflow</h2>
+      <p>This project adopts an <b>iterative cycle</b> workflow combining Wet Lab and Dry Lab experiments <span class="figure"> (Figure 2)</span>.</p>
+      <img src="images/de2.png" class="section-image2">
+      <div class="figure-caption">Figure 2. The overall workflow of the semi-rational site-directed mutagenesis and machine learning<br><br></div>
+      <p><span class="topic">1 Rational Design and Single-site Mutant Library Construction:</span> Perform site-directed saturation mutagenesis on the four selected residues <b>(R143, R159, F170, K172)</b> individually to construct mutant libraries.</p>
+      <p><span class="topic">2 Wet Lab Validation and Data Generation: </span>Express and purify mutant enzymes, use TLC for rapid qualitative screening of product distribution, use HPLC for precise quantitative analysis to obtain the tetrasaccharide ratio (DP4%) data for each mutant.
+      <p><span class="topic">3 Machine Learning Model Training and Prediction: </span><p><b>Data Preprocessing and Feature Engineering: </b>Integrate single-site mutation data and construct a 28-dimensional feature vector including amino acid physicochemical properties, interaction scores, etc.</p>
+<p><b>Model Training: </b>Train a set of nonlinear regression models using single-site data and a small set of constructed double-site mutant data.</p>
+<p><b>Prediction and Optimization: </b>Use the trained models to predict the tetrasaccharide yield for all possible double-site combinations (318 in total) and screen the top 20 optimal candidate combinations through a comprehensive scoring system.</p>
+      <p><span class="topic">4 Iterative Validation and Model Refinement: </span>Experimentally validate the optimal candidate mutants predicted by machine learning, then feed the new experimental data back into the machine learning model to refine the model and improve the accuracy of the next round of predictions. Repeat this process to gradually approach the optimal solution.</p>
     </div>
 
     <div class="section" id="section4">
-      <h2>Multiple Mutant Design</h2>
-      <p>Based on machine learning predictions, we designed four multiple-site mutants combining favorable mutations from single mutant analysis. These included double and triple mutants predicted to enhance tetrasaccharide production.</p>
-      <p>The designed mutants were experimentally validated to confirm the predictive accuracy of our models and to identify the most effective combinations.</p>
-    </div>
+      <h2>Key Innovations</h2>
+      <p><span class="topic">1 Structure-Guided Target Selection: </span>Avoids blindness and greatly narrows the search space.</p>
+      <p><span class="topic">2 Machine Learning-Driven Efficient Exploration: </span>Uses small-sample data to predict the effects of a vast number of mutant combinations, significantly reducing experimental workload.</p>
+      <p><span class="topic">3 Closed-Loop Iterative Optimization System: </span>Establishes a "Design-Build-Test-Learn" cycle, enabling gradual and efficient improvement of enzyme performance.
   </div>
 
   <!-- 右侧导航 -->
   <div class="side-nav">
-    <a href="#section1" class="active">Rational Design</a>
-    <a href="#section2">Mutagenesis</a>
-    <a href="#section3">Machine Learning</a>
-    <a href="#section4">Multiple Mutants</a>
+    <a href="#section1" class="active">Structure-Guided Design</a>
+    <a href="#section2">Selection of Key Residues</a>
+    <a href="#section3">Overall Workflow</a>
+    <a href="#section4">Key Innovations</a>
+
   </div>
 
   <!-- 滚动进度 JS -->

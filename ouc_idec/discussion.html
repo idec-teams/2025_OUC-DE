@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Discussion - Alginate Lyase Engineering</title>
+  <title>OUC-DE - Discussion</title>
   <style>
     /* 基础样式 */
     * {
@@ -19,7 +19,7 @@
       line-height: 1.8;
     }
 
-    /* 顶部导航栏 */
+    /* 导航栏 */
     nav {
       position: fixed;
       top: 0;
@@ -35,8 +35,8 @@
       z-index: 1000;
     }
     nav .logo {
-      font-size: 20px;
-      font-weight: bold;
+      height: 58px;
+      width: auto;
     }
     nav ul {
       list-style: none;
@@ -48,7 +48,7 @@
       cursor: pointer;
     }
     nav ul li a {
-      color: rgb(255, 255, 255);
+      color: white;
       text-decoration: none;
       padding: 25px 15px;
       display: block;
@@ -70,7 +70,7 @@
       margin: 0;
     }
     nav ul ul li a {
-      padding: 10px 15px;
+      padding: 5px 15px;
       font-size: 18px;
     }
     nav ul ul li a:hover {
@@ -99,7 +99,7 @@
       margin-top: 100px;
       max-width: 85%;
       margin-left: auto;
-      margin-right: 220px;
+      margin-right: auto; 
       padding: 40px;
       background: #fdf6e3;
     }
@@ -115,6 +115,7 @@
 
     .section {
       margin-bottom: 80px;
+      
     }
 
     .section h2 {
@@ -133,83 +134,42 @@
       color: #444;
     }
 
-    /* 右侧导航栏 */
-    .side-nav {
-      position: fixed;
-      top: 100px;
-      right: 20px;
-      width: 200px;
-      background: #fafafa;
-      padding: 20px;
-      border-radius: 8px;
-      border: 1px solid #eee;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        /* Reference样式 */
+    .references {
+      margin-top: 60px;
+      padding-top: 20px;
+      border-top: 1px solid #ddd;
+      font-family: "Times New Roman", Times, serif;
+      font-size: 14px;
+      line-height: 1.4;
+      color: #666;
     }
 
-    .side-nav a {
-      display: block;
-      color: #268bd2;
-      text-decoration: none;
-      padding: 10px 12px;
+    .references h3 {
+      font-size: 16px;
+      color: #444;
+      margin-bottom: 10px;
+    }
+
+    .references ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    .references li {
       margin-bottom: 8px;
-      border-radius: 4px;
-      font-size: 15px;
-      transition: all 0.3s ease;
-    }
-
-    .side-nav a:hover {
-      background: #eef;
-      color: #002b36;
-      transform: translateX(5px);
-    }
-
-    .side-nav a.active {
-      font-weight: bold;
-      color: #002b36;
-      background: #e6f3ff;
-    }
-
-    /* 插入图片样式 */
-    .section img {
-      display: block;
-      width: 100%;
-      max-width: 500px;
-      margin: 20px auto;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-
-    /* 重点内容样式 */
-    .highlight-box {
-      background: #e6f3ff;
-      border-left: 4px solid #268bd2;
-      padding: 20px;
-      margin: 20px 0;
-      border-radius: 0 8px 8px 0;
-    }
-
-    .conclusion {
-      background: #f0f7ff;
-      border: 2px solid #268bd2;
-      padding: 25px;
-      margin: 30px 0;
-      border-radius: 8px;
     }
   </style>
 </head>
 <body>
   <!-- 顶部导航栏 -->
   <nav>
-    <div class="logo">LOGO</div>
+    <img src="images/logo.jpg" class="logo">
     <ul>
       <li><a href="index.html">Home</a></li>
-      <li>
-        <a href="#">Team ▾</a>
-        <ul>
-          <li><a href="members.html">Members</a></li>
-          <li><a href="attribution.html">Attribution</a></li>
-        </ul>
-      </li>
+<li>
+  <a href="members.html">Team</a>
+</li>
       <li>
         <a href="#">Project ▾</a>
         <ul>
@@ -222,81 +182,120 @@
       <li>
         <a href="#">Documentation ▾</a>
         <ul>
-          <li><a href="notebook.html">Notebook</a></li>
-          <li><a href="protocal.html">Protocol</a></li>
+          <li><a href="2025 OUC-DE Notebook.pdf" target="_blank">Notebook</a></li>
+          <li><a href="2025 OUC-DE Protocols.pdf" target="_blank">Protocol</a></li>
+          <li><a href="2025 OUC-DE Supplementary Materials.pdf" target="_blank">Supplementary Materials</a></li>
         </ul>
       </li>
     </ul>
   </nav>
 
-  <!-- 横向进度条（导航栏下方） -->
+  <!-- 横向进度条 -->
   <div id="horizontalProgressBar">
     <div id="horizontalProgress"></div>
   </div>
 
   <!-- 主内容区 -->
   <div class="content">
-    <h1 class="page-title">Discussion and Analysis</h1>
+    <h1 class="page-title">Discussion</h1>
 
     <div class="section" id="section1">
-      <h2>Structural Insights into Mutant Effects</h2>
-      <p>The remarkable improvement in tetrasaccharide yield with R159N mutation can be attributed to structural modifications in the substrate-binding pocket. Asparagine at position 159 likely creates more favorable hydrogen bonding interactions with the -4 subsite of the substrate, stabilizing the binding of longer oligosaccharide chains.</p>
-      
-      <div class="highlight-box">
-        <p><strong>Key Finding:</strong> The R159N mutation increased tetrasaccharide content by 21.0%, demonstrating the critical role of residue 159 in substrate recognition and product distribution.</p>
-      </div>
-      
-      <p>Similarly, the K172E mutation introduced a negatively charged residue that may enhance electrostatic interactions with the alginate substrate, contributing to the observed 10.6% improvement in tetrasaccharide yield.</p>
-      <img src="https://via.placeholder.com/500x300?text=Structural+Analysis" alt="Structural Analysis">
-    </div>
 
-    <div class="section" id="section2">
-      <h2>Machine Learning Model Performance</h2>
-      <p>Our machine learning models demonstrated excellent predictive accuracy for multiple mutant effects, with predictions deviating from experimental values by less than 1% in most cases. This high accuracy validates our approach of combining structural insights with computational predictions.</p>
-      <p>The success of the random forest model suggests that non-linear relationships between mutations and tetrasaccharide yield can be effectively captured using ensemble learning methods.</p>
-      <div class="highlight-box">
-        <p><strong>Model Performance:</strong> Random forest achieved R² = 0.89 on test data, indicating strong predictive capability for designing optimal multiple mutants.</p>
-      </div>
-    </div>
+      <p>In selecting our enzyme target, we were guided by the strong structural foundation
+established in recent studies. Notably, alginate lyases, as reported by Zhang et al. (2022),
+have been the subject of extensive structural and mechanistic investigations, providing
+a well-established theoretical framework. Within this context, PyAly emerges as an especially suitable candidate because it possesses a resolved crystal structure and clearly
+defined domains. This solid experimental and theoretical basis ensured that our technical approach was both reasonable and feasible. Building on these insights, our design
+strategy focused on structurally informed residue selection, with the goal of maximizing
+functional impact and specifically enhancing tetrasaccharide yield.</p>
 
-    <div class="section" id="section3">
-      <h2>Synergistic Effects in Multiple Mutants</h2>
-      <p>The triple mutant R159N_F170Y_K172E achieved the highest tetrasaccharide yield (43.9%), demonstrating synergistic effects between mutations. While R159N provided the largest individual improvement, combining it with F170Y and K172E further enhanced performance.</p>
-      <p>This synergy likely arises from complementary modifications to the substrate-binding pocket, where each mutation contributes to different aspects of substrate recognition and catalysis.</p>
-      <img src="https://via.placeholder.com/500x300?text=Multiple+Mutations" alt="Multiple Mutations">
-    </div>
+<p>A central feature of our approach is following the guidance of rational design rather than random screening. Residue selection was informed by structural insights, ensuring that mutagenesis targeted positions with a high likelihood of functional impact
+and maintained a clear focus on improving tetrasaccharide production. Single-site mutations at these residues served as functional probes, allowing us to validate their local
+contributions. Building on these insights, we reasoned that rationally designed combinations would have a higher chance of generating synergistic improvements in yield.
+In this way, our design narrows the mutational search space, increases efficiency, and
+offers stronger predictability compared with conventional random mutagenesis.</p>
 
-    <div class="section" id="section4">
-      <h2>Comparison with Previous Studies</h2>
-      <p>Our results compare favorably with previous alginate lyase engineering efforts. While most studies have focused on improving overall activity or altering substrate specificity, our targeted approach for enhancing specific product distribution represents a novel strategy.</p>
-      <p>The 43.9% tetrasaccharide yield achieved by our best mutant significantly exceeds reported values for wild-type PL7 alginate lyases, which typically produce 20-30% tetrasaccharides.</p>
-    </div>
+<p>Another key contribution of this study is the application of machine learning to
+predict high-performing mutation combinations and thereby reduce experimental workload. Multi-site mutations are generally expected to deliver stronger effects than single-site changes; however, the sheer number of possible combinations makes exhaustive
+experimental testing impractical. To address this challenge, machine learning was applied to prioritize variants with the highest predicted potential, thereby directing experimental resources toward the most informative candidates. Importantly, successful results from one round served as the starting point for the next. This iterative strategy
+demonstrates how machine learning enables stepwise optimization — progressively
+building on prior gains, reducing unnecessary trials, and accelerating the discovery of
+superior enzyme variants.</p>
 
-    <div class="section" id="section5">
-      <h2>Limitations and Future Directions</h2>
-      <p>While our approach successfully improved tetrasaccharide yield, several limitations should be addressed in future work:</p>
+<p>We developed a framework integrating rational design with machine learning in
+an iterative optimization cycle. This approach was validated through the construction
+of single and double mutants, which served the dual purpose of probing key residue
+functions and generating the foundational dataset for model training. The demonstrated
+predictive capability confirms our strategy's feasibility.</p>
+
+<p>Future efforts will focus on enhancing this cycle's precision and efficiency. We
+plan to systematically expand the mutant library, prioritizing F170-containing combinations, while implementing standardized assays to improve data quality. To address
+current limitations, we will refine our predictive algorithms to better capture higherorder epistatic effects and improve accuracy across diverse mutation combinations.
+Streamlining experimental workflows will accelerate validation, strengthening the iterative feedback between computation and experimentation. This continuous refinement
+of both algorithms and experimental processes will establish a robust platform for developing enzyme variants with superior product specificity.</p>
+
+    <!-- Reference板块 -->
+    <div class="references">
+      <h3>References</h3>
       <ul>
-        <li>Limited exploration of mutations beyond the four selected residues</li>
-        <li>Potential trade-offs between tetrasaccharide yield and overall enzyme activity</li>
-        <li>Need for industrial-scale validation of mutant performance</li>
+        <li>1. Bi, D., Yang, X., Yao, L., Hu, Z., Li, H., Xu, X., & Lu, J. (2022). Potential Food and Nutraceutical
+Applications of Alginate: A Review. Marine Drugs, 20(9), 564.
+DOI: https://doi.org/10.3390/md20090564</li>
+        <li>2. Gao, S.-K., Yin, R., Wang, X.-C., Jiang, H.-N., Liu, X.-X., Lv, W., Ma, Y., & Zhou, Y.-X. (2021).
+Structure Characteristics, Biochemical Properties, and Pharmaceutical Applications of Alginate
+Lyases. Marine Drugs, 19(11), 628.
+DOI: https://doi.org/10.3390/md19110628</li>
+        <li>3. Inoue, A., Mashino, C., Uji, T., Saga, N., Mikami, K., & Ojima, T. (2015). Characterization of
+an eukaryotic PL-7 Alginate Lyase in the Marine Red Alga Pyropia Yezoensis. Current Biotech-
+nology, 4(3), 240–258.
+DOI: https://doi.org/10.2174/2211550104666150915210434</li>
+        <li>4. Wang, M., Chen, L., & Zhang, Z. (2021). Potential applications of alginate oligosaccharides for
+biomedicine – A mini review. Carbohydrate Polymers, 271, 118408.
+DOI: https://doi.org/10.1016/j.carbpol.2021.118408</li>
+        <li>5. Liu, J., Yang, S., Li, X., Yan, Q., Reaney, M. J. T., & Jiang, Z. (2019). Alginate Oligosaccharides:
+Production, Biological Activities, and Potential Applications. Comprehensive Reviews in Food
+Science and Food Safety, 18(6), 1859–1881.
+DOI: https://doi.org/10.1111/1541-4337.12494</li>
+        <li>6. Zhang, K., Li, Z., Zhu, Q., Cao, H., He, X., Zhang, X.-H., Liu, W., & Lyu, Q. (2022). Determi-
+nation of oligosaccharide product distributions of PL7 alginate lyases by their structural elements.
+Communications Biology, 5(1).
+DOI: https://doi.org/10.1038/s42003-022-03721-1</li>
+        <li>7. Fersht, A. R., & Winter, G. (1984). Studying Enzyme-Substrate Interactions by Site-Directed
+Mutagenesis. In Specificity in Biological Interactions (pp. 123–132). Springer Netherlands.
+DOI: https://doi.org/10.1007/978-94-009-6457-0_7</li>
+        <li>8. Tripathi, N., Hérisson, J., & Faulon, J.-L. (2025). Machine learning in predictive biocatalysis: A
+comparative review of methods and applications. Biotechnology Advances, 84, 108698.
+DOI: https://doi.org/10.1016/j.biotechadv.2025.108698</li>
+        <li>9. Cheng D, Jiang C, Xu J, et al. Characteristics and applications of alginate lyases: A review[J].
+International Journal of Biological Macromolecules, 2020, 164: 1304-1320.
+DOI: https://doi.org/10.1016/j.ijbiomac.2020.07.199</li>
+        <li>10.Jemimah, S., & Gromiha, M. M. (2018). Exploring additivity effects of double mutations on the
+binding affinity of protein-protein complexes. Proteins, 86(5), 536～547.
+DOI: https://doi.org/10.1002/prot.25472</li>
+        <li>11.Otwinowski, J., McCandlish, D. M., & Plotkin, J. B. (2018). Inferring the shape of global epi-
+stasis. Proceedings of the National Academy of Sciences of the United States of America,
+115(32), E7550～E7558.
+DOI: https://doi.org/10.1073/pnas.1804015115</li>
+        <li>12.Reddy, G., & Desai, M. M. (2021). Global epistasis emerges from a generic model of a complex
+trait. eLife, 10, e64740.
+DOI: https://doi.org/10.7554/eLife.64740</li>
+        <li>13.Rivas-Fernández, J. P., Vuillemin, M., Pilgaard, B., Klau, L. J., Fredslund, F., Lund-Hanssen, C.,
+Welner, D. H., Meyer, A. S., Morth, J. P., Meilleur, F., Aachmann, F. L., Rovira, C., & Wilkens,
+C. (2025). Unraveling the molecular mechanism of polysaccharide lyases for efficient alginate
+degradation. Nature Communications, 16(1), 2670.
+DOI: https://doi.org/10.1038/s41467-025-56754-5</li>
+        <li>14.Giguère, S., Marchand, M., Laviolette, F., Drouin, A., & Corbeil, J. (2013). Learning a peptide-
+protein binding affinity predictor with kernel ridge regression. BMC bioinformatics, 14, 82.
+DOI: https://doi.org/10.1186/1471-2105-14-82</li>
+        <li>15.Xu, Y., Verma, D., Sheridan, R. P., Liaw, A., Ma, J., Marshall, N. M., McIntosh, J., Sherer, E. C.,
+Svetnik, V., & Johnston, J. M. (2020). Deep Dive into Machine Learning Models for Protein
+Engineering. Journal of chemical information and modeling, 60(6), 2773–2790.
+DOI: https://doi.org/10.1021/acs.jcim.0c00073</li>
+
+
       </ul>
-      <p>Future studies could expand the mutational space, incorporate dynamic simulations, and optimize for additional properties such as thermal stability and pH tolerance.</p>
     </div>
 
-    <div class="conclusion">
-      <h2>Conclusion</h2>
-      <p>Our integrated approach combining structure-guided mutagenesis with machine learning successfully enhanced tetrasaccharide production in PyAly alginate lyase. The R159N single mutant and R159N_F170Y_K172E triple mutant represent promising candidates for industrial production of high-value alginate oligosaccharides. This methodology provides a framework for rational enzyme engineering that can be applied to other biocatalysts.</p>
-    </div>
-  </div>
-
-  <!-- 右侧导航 -->
-  <div class="side-nav">
-    <a href="#section1" class="active">Structural Insights</a>
-    <a href="#section2">ML Performance</a>
-    <a href="#section3">Synergistic Effects</a>
-    <a href="#section4">Comparison</a>
-    <a href="#section5">Limitations</a>
-  </div>
 
   <!-- 滚动进度 JS -->
   <script>
@@ -306,41 +305,6 @@
       const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
       const progressWidth = (scrollTop / scrollHeight) * 100;
       document.getElementById("horizontalProgress").style.width = progressWidth + "%";
-    });
-
-    // 侧边导航点击 + 高亮
-    document.querySelectorAll('.side-nav a').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        const targetId = this.getAttribute('href');
-        const targetElement = document.querySelector(targetId);
-
-        document.querySelectorAll('.side-nav a').forEach(link => link.classList.remove('active'));
-        this.classList.add('active');
-
-        targetElement.scrollIntoView({ behavior: 'smooth' });
-      });
-    });
-
-    // 滚动时自动高亮当前 section
-    window.addEventListener('scroll', () => {
-      const sections = document.querySelectorAll('.section');
-      const navLinks = document.querySelectorAll('.side-nav a');
-      let current = '';
-
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop - 160;
-        if (window.scrollY >= sectionTop) {
-          current = section.getAttribute('id');
-        }
-      });
-
-      navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === '#' + current) {
-          link.classList.add('active');
-        }
-      });
     });
   </script>
 </body>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Results - Alginate Lyase Engineering</title>
+  <title>OUC-DE - Result</title>
   <style>
     /* 基础样式 */
     * {
@@ -19,7 +19,7 @@
       line-height: 1.8;
     }
 
-    /* 顶部导航栏 */
+    /* 导航栏 */
     nav {
       position: fixed;
       top: 0;
@@ -34,48 +34,22 @@
       height: 80px;
       z-index: 1000;
     }
-    nav .logo {
-      font-size: 20px;
-      font-weight: bold;
-    }
-    nav ul {
-      list-style: none;
-      display: flex;
-    }
-    nav ul li {
-      position: relative;
-      margin-left: 20px;
-      cursor: pointer;
-    }
+    nav .logo {height: 58px;
+      width: auto;}
+    nav ul {list-style: none; display: flex;}
+    nav ul li {position: relative; margin-left: 20px; cursor: pointer;}
     nav ul li a {
-      color: rgb(255, 255, 255);
-      text-decoration: none;
-      padding: 25px 15px;
-      display: block;
-      font-size: 20px;
+      color: white; text-decoration: none;
+      padding: 25px 15px; display: block; font-size: 20px;
     }
-    nav ul li:hover ul {
-      display: block;
-    }
+    nav ul li:hover ul {display: block;}
     nav ul ul {
-      display: none;
-      position: absolute;
-      top: 50px;
-      left: 0;
-      background: #073642;
-      padding: 0;
-      min-width: 150px;
+      display: none; position: absolute; top: 50px; left: 0;
+      background: #073642; padding: 0; min-width: 150px;
     }
-    nav ul ul li {
-      margin: 0;
-    }
-    nav ul ul li a {
-      padding: 10px 15px;
-      font-size: 18px;
-    }
-    nav ul ul li a:hover {
-      background: #586e75;
-    }
+    nav ul ul li {margin: 0;}
+    nav ul ul li a {padding: 5px 15px; font-size: 18px;}
+    nav ul ul li a:hover {background: #586e75;}
 
     /* 横向进度条 */
     #horizontalProgressBar {
@@ -169,53 +143,96 @@
       background: #e6f3ff;
     }
 
-    /* 插入图片样式 */
-    .section img {
-      display: block;
+    /* 1. 局部改变字体颜色 */
+.topic {
+  color: #268bd2;
+  font-weight: bold;
+}
+
+.figure {
+  color: #f46a08;
+}
+
+  .figure-caption {
+    text-align: center;
+    font-size: 14px;
+    color: #666;
+    margin-top: 8px;
+    font-style: italic;
+  }
+
+  /* 2. 调整图片大小 */
+.section-image {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  margin: 20px auto;
+  display: block;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+        .image-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin: 20px 0;
       width: 100%;
-      max-width: 500px;
-      margin: 20px auto;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
 
-    /* 表格样式 */
-    .results-table {
+    .figure-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .figure3 {
+      width: 80%;
+      max-width: 610px;
+      height: auto;
+      margin-right: 20px;
+        display: block;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .figure4 {
       width: 100%;
-      border-collapse: collapse;
-      margin: 20px 0;
-      font-size: 18px;
+      max-width: 903px;
+      height: auto;
+        display: block;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
-    .results-table th, .results-table td {
-      border: 1px solid #ddd;
-      padding: 12px;
-      text-align: center;
+    .figure5 {
+      width: 80%; 
+      max-width: 700px;
+      height: auto;
+      margin-right: 20px;
+        display: block;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
-    .results-table th {
-      background-color: #268bd2;
-      color: white;
-    }
-    .results-table tr:nth-child(even) {
-      background-color: #f2f2f2;
-    }
-    .results-table tr:hover {
-      background-color: #e6f3ff;
+
+    .figure6 {
+      width: 100%;
+      max-width: 600px;
+      height: auto;
+        display: block;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
   </style>
 </head>
 <body>
   <!-- 顶部导航栏 -->
   <nav>
-    <div class="logo">LOGO</div>
+    <img src="images/logo.jpg"  class="logo">
     <ul>
       <li><a href="index.html">Home</a></li>
-      <li>
-        <a href="#">Team ▾</a>
-        <ul>
-          <li><a href="members.html">Members</a></li>
-          <li><a href="attribution.html">Attribution</a></li>
-        </ul>
-      </li>
+<li>
+  <a href="members.html">Team</a>
+</li>
       <li>
         <a href="#">Project ▾</a>
         <ul>
@@ -228,14 +245,15 @@
       <li>
         <a href="#">Documentation ▾</a>
         <ul>
-          <li><a href="notebook.html">Notebook</a></li>
-          <li><a href="protocal.html">Protocol</a></li>
+          <li><a href="2025 OUC-DE Notebook.pdf" target="_blank">Notebook</a></li>
+          <li><a href="2025 OUC-DE Protocols.pdf" target="_blank">Protocol</a></li>
+          <li><a href="2025 OUC-DE Supplementary Materials.pdf" target="_blank">Supplementary Materials</a></li>
         </ul>
       </li>
     </ul>
   </nav>
 
-  <!-- 横向进度条（导航栏下方） -->
+  <!-- 横向进度条 -->
   <div id="horizontalProgressBar">
     <div id="horizontalProgress"></div>
   </div>
@@ -245,113 +263,72 @@
     <h1 class="page-title">Experimental Results</h1>
 
     <div class="section" id="section1">
-      <h2>Single Mutant Screening Results</h2>
-      <p>We successfully generated and screened single mutants at four key positions (R143, R159, F170, K172). The tetrasaccharide content in degradation products was measured using HPLC analysis.</p>
-      
-      <table class="results-table">
-        <thead>
-          <tr>
-            <th>Mutation Position</th>
-            <th>Best Mutant</th>
-            <th>Tetrasaccharide Content</th>
-            <th>Improvement</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>R143</td>
-            <td>R143A</td>
-            <td>32.5%</td>
-            <td>+7.3%</td>
-          </tr>
-          <tr>
-            <td>R159</td>
-            <td>R159N</td>
-            <td>46.2%</td>
-            <td>+21.0%</td>
-          </tr>
-          <tr>
-            <td>F170</td>
-            <td>F170Y</td>
-            <td>28.9%</td>
-            <td>+3.7%</td>
-          </tr>
-          <tr>
-            <td>K172</td>
-            <td>K172E</td>
-            <td>35.8%</td>
-            <td>+10.6%</td>
-          </tr>
-        </tbody>
-      </table>
-      
-      <p>R159N showed the most significant improvement, increasing tetrasaccharide content to 46.2%, representing a 21.0% enhancement over wild-type PyAly.</p>
-      <img src="https://via.placeholder.com/500x300?text=Single+Mutant+Results" alt="Single Mutant Results">
+      <h2>Results of Single-Site Saturation Mutagenesis</h2>
+      <p>To evaluate whether single-site mutations could alter the enzyme’s DP specificity,
+we constructed a series of site-directed mutants including R159X, F170X, K172X, and
+R143X, and used un-purified mutated enzymes to catalyze polyM under identical conditions. To ensure comparability among different systems, the total product amount was
+adjusted to the same level before quantitative analysis depended on SDS-PAGE and TLC, followed by examination of the relative proportions of trisaccharide, tetrasaccharide, pentasaccharide,
+and hexasaccharide by HPLC.</p>
+      <p>Compared with the wild type PyAly, different mutants exhibited distinct product distributions. The tetrasaccharide proportion in the <span class="topic">wild type</span> was around <span class="topic"> 34.5%</span>.
+At the <b>K172 position</b>, several mutants showed increased tetrasaccharide production, with <span class="topic">K172D and K172E</span> reaching the <span class="topic"> highest proportions of 42.1% and 41.4%</span>, respectively,
+while <span class="topic">K172W and K172Q</span> also displayed elevated levels ranging <span class="topic">from 36.3% to 38.4%</span>.</p>
+      <p>At the <span class="topic">R159 position</span>, most mutations markedly increased tetrasaccharide content,
+with R159N, R159S, and R159H reaching 46.2%, 44.5%, and 42.4%, respectively, <b>all
+well above the wild-type level</b>. In addition, R159D, R159V, and R159L showed approximately 40% tetrasaccharide production <span class="figure">(Figure 3,4)</span>.</p>
+        <div class="image-row">
+    <div class="figure-container">
+      <img src="images/re3.png" class="figure3">
+      <div class="figure-caption">Figure 3. Product Distribution of K172&R159 variants (DP3-DP6)</div>
     </div>
-
-    <div class="section" id="section2">
-      <h2>Machine Learning Predictions</h2>
-      <p>Using single mutant data, we trained machine learning models to predict the effects of multiple mutations. The random forest model achieved the best performance with R² = 0.89 on test data.</p>
-      <p>Four multiple-site mutants were designed based on computational predictions:</p>
-      <ul>
-        <li>R159A_K172E (predicted yield: 34.91%)</li>
-        <li>R159N_F170Y (predicted yield: 42.18%)</li>
-        <li>R143A_R159N_K172E (predicted yield: 38.45%)</li>
-        <li>R159N_F170Y_K172E (predicted yield: 44.72%)</li>
-      </ul>
-      <img src="https://via.placeholder.com/500x300?text=ML+Predictions" alt="Machine Learning Predictions">
-    </div>
-
-    <div class="section" id="section3">
-      <h2>Multiple Mutant Validation</h2>
-      <p>Experimental validation of the designed multiple mutants confirmed the predictive accuracy of our machine learning models.</p>
-      
-      <table class="results-table">
-        <thead>
-          <tr>
-            <th>Mutant</th>
-            <th>Predicted Yield</th>
-            <th>Experimental Yield</th>
-            <th>Deviation</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>R159A_K172E</td>
-            <td>34.91%</td>
-            <td>35.2%</td>
-            <td>+0.29%</td>
-          </tr>
-          <tr>
-            <td>R159N_F170Y</td>
-            <td>42.18%</td>
-            <td>41.8%</td>
-            <td>-0.38%</td>
-          </tr>
-          <tr>
-            <td>R143A_R159N_K172E</td>
-            <td>38.45%</td>
-            <td>39.1%</td>
-            <td>+0.65%</td>
-          </tr>
-          <tr>
-            <td>R159N_F170Y_K172E</td>
-            <td>44.72%</td>
-            <td>43.9%</td>
-            <td>-0.82%</td>
-          </tr>
-        </tbody>
-      </table>
-      
-      <p>The triple mutant R159N_F170Y_K172E achieved the highest tetrasaccharide yield of 43.9%, demonstrating the effectiveness of our combined approach.</p>
+    <div class="figure-container">
+      <img src="images/re4.png" class="figure4">
+      <div class="figure-caption">Figure 4. The tetrasaccharide proportion of K172&R159 variants compared with PyAly</div>
     </div>
   </div>
+  <p>In summary, these results demonstrate that single-site mutations at different positions have distinct impacts on product distribution. Both the <b>R159 and K172</b> series contain multiple <b> “positive mutations” </b> that increase tetra-saccharide proportion.</p> 
+<p>On the other sites, F170 was not included in this set of experiments, and R143 mutations exhibited relatively modest effects on tetrasaccharide proportion. Raw data are provided in <span class="figure"> Supplementary Materials 3</span>.<br><br></p> 
+
+
+    <div class="section" id="section2">
+      <h2>Machine Learning Predictions for Double-Site Combinations</h2>
+      <p>Considering the contributions of individual mutations to substrate binding in the “-” region, single-site data alone may be insufficient to predict double-mutant effects due to potential non-additive interactions. Therefore, a small set of double-site mutants serves as critical reference points to calibrate the machine-learning model and capture such interactions, improving prediction accuracy for untested variants.</p>
+<p>Based on this rationale, five double-site combinations were randomly selected to expand dataset coverage. These combinations <span class="topic">(R159D-K172E, R159K-K172P, R159N-K172L, R159N-K172T, R159S-K172P)</span> along with the wild type were constructed and characterized for their tetrasaccharide production ratios (DP4) and HPLC peak areas <span class="figure">(Figure 5)</span>. This dataset, covering a broad range of activity and product selectivity, was used to train and vali-date the machine-learning model. </p>
+      <p>To investigate the combinatorial effects of R159 and K172 mutations, an esemble of <b>machine-learning models</b>—including <b>SVR, MLP, GPR, and kernel-ridge regression</b>—was used to exhaustively predict the performance of all 318 theoretical double-site variants <span class="figure">(Figure 6)</span>. Both DP4 proportion and peak area were evaluated, and an integrated Combined Score was calculated to rank overall performance.</p>
+              <div class="image-row">
+    <div class="figure-container">
+      <img src="images/re5.png" class="figure5">
+      <div class="figure-caption">Figure 5. Product distribution of K172 and R159 double mutants</div>
+    </div>
+    <div class="figure-container">
+      <img src="images/re6.png" class="figure6">
+      <div class="figure-caption">Figure 6. Predicted tetrasaccharide ratios for double-point mutants  a.Distribution b.Heatmap</div>
+    </div>
+  </div>
+  <p>Among all candidates, the <b>top twenty double-site mutants</b> were predicted to achieve DP4 ratios ranging <b>from 34.13% to 34.93%</b>, mostly surpassing the wild-type PyAly (34.52%) <span class="figure">(Table 1)</span>. The <b>highest-ranked</b> predicted combination was <b>R159A-K172E</b>, with a DP4 ratio of 34.91% and a Combined Score of 0.9882. Other top-performing predicted variants included <b>R159A-K172R</b> (34.86%, 0.9863) and <b>R159A-K172D</b> (34.93%, 0.9854). Variants with R159A/P substitutions paired with K172E/R/D consistently enhanced DP4 selectivity. Slightly lower-ranked variants (Combined Score ~0.973–0.979), such as R159A-K172H (34.13%, 0.9776) and R159C-K172R (34.78%, 0.9775), maintained DP4 ratios above 34.1%.</p>
+  <p>Overall, these predictions identify a set of promising double-site mutants for experimental evaluation.</p>
+
+    </div>
+
+
+    <div class="section" id="section3">
+      <h2>Synergy Effect Analysis</h2>
+      <p>The predicted tetrasaccharide proportions of all double-site variants are visualized in Figure 7, showing that <b>most double mutants exhibit DP4 levels intermediate between their corresponding single mutants</b>. Synergy analyses <span class="figure"> (Figure 7)</span> quantify the difference between actual double-point effects and expected additive effects from single-point mutations. These results reveal that <b>non-additive effects are generally minimal</b>, indicating <b>largely independent contributions of R159 and K172 to tetrasaccharide production</b>. Moreover, explicit incorporation of such synergistic features into machine learning models improved predictive accuracy and facilitated the identification of top-performing double-point mutants.</p> 
+    </div>
+    <img src="images/re7.png" class="section-image">
+    <div class="figure-caption">Figure 7. a Analysis of Synergistic Effects in 318 Double-Point Mutants, b Heatmap of Ratio Synergy, c Synergy Effects of Top 10 Optimal Combinations<br><br>
+      </div>
+    <img src="images/re8.png" class="section-image">
+    <div class="figure-caption">Table 1. DP4 Ratio Top 20 Predicted R159–K172 Double-Site Variants  ( Note. Predicted Ratio (%) indicates the predicted DP4 proportion.)
+      </div>
+
 
   <!-- 右侧导航 -->
   <div class="side-nav">
-    <a href="#section1" class="active">Single Mutants</a>
-    <a href="#section2">ML Predictions</a>
-    <a href="#section3">Multiple Mutants</a>
+    <a href="#section1" class="active"> Results of Single-Site Saturation Mutagenesis</a>
+    <a href="#section2">Machine Learning Predictions for Double-Site Combinations</a>
+    <a href="#section3">Synergy Effect Analysis</a>
+
+
   </div>
 
   <!-- 滚动进度 JS -->
